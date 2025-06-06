@@ -1,22 +1,25 @@
+# Standard Library
 import os
 import sys
 import json
 
+# Third party
 from dotenv import load_dotenv
-from pymongo import MongoClient
-
-load_dotenv()
-
-MONGO_DB_URL=os.getenv("MONGO_DB_URL")
-
 import certifi
-ca = certifi.where()
-
+from pymongo import MongoClient
 import pandas as pd
 import numpy as np
-import pymongo
+
+# Local application
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
+
+
+# Load Environment Variables
+load_dotenv()
+MONGO_DB_URL=os.getenv("MONGO_DB_URL")
+ca = certifi.where()
+
 
 class NetworkDataExtract():
     def __init__(self):
